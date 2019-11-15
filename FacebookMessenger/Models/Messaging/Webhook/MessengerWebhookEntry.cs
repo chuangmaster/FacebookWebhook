@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FacebookWebhook.Models;
-using FacebookWebhook.Models;
 using Newtonsoft.Json;
 
-namespace FacebookMessenge.Models.Messaging.Webhook
+namespace FacebookMessenger.Models.Messaging.Webhook
 {
     public class MessengerWebhookEntry : WebhookBaseEntry
     {
