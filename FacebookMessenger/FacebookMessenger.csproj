@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MessengerCore.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Adjustment.cs" />
     <Compile Include="Models\AspectRatio.cs" />
