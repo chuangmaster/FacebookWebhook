@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.757
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacebookWebhook", "FacebookWebhook\FacebookWebhook.csproj", "{FD213A65-9FA6-4E29-8874-533105C2AC5E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacebookMessenger", "FacebookMessenge\FacebookMessenger.csproj", "{472077E6-C72F-4875-A07D-4CCD802B291D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{FD213A65-9FA6-4E29-8874-533105C2AC5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD213A65-9FA6-4E29-8874-533105C2AC5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD213A65-9FA6-4E29-8874-533105C2AC5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{472077E6-C72F-4875-A07D-4CCD802B291D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{472077E6-C72F-4875-A07D-4CCD802B291D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{472077E6-C72F-4875-A07D-4CCD802B291D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{472077E6-C72F-4875-A07D-4CCD802B291D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

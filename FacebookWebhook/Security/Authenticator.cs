@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FacebookWebhook;
 
-namespace Bot.Messenger.Security
+namespace FacebookWebhook.Security
 {
     public class Authenticator : ApiBase
     {
