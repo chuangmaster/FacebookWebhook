@@ -145,6 +145,11 @@
     <Compile Include="Models\UserInfoField.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Serialization\JsonConverters\AttachmentListConverter.cs" />
+    <Compile Include="Tools\AttachmentHandler.cs" />
+    <Compile Include="Tools\MessengerProfileAPI.cs" />
+    <Compile Include="Tools\RequestHandler.cs" />
+    <Compile Include="Tools\SendApi.cs" />
+    <Compile Include="Tools\UserProfileApi.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
