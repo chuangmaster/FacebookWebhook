@@ -7,8 +7,8 @@
     <ProjectGuid>{472077E6-C72F-4875-A07D-4CCD802B291D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FacebookMessenge</RootNamespace>
-    <AssemblyName>FacebookMessenge</AssemblyName>
+    <RootNamespace>FacebookMessenger</RootNamespace>
+    <AssemblyName>FacebookMessenger</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
