@@ -13,6 +13,6 @@ namespace FacebookWebhook.Models
         public virtual string _Object { get; set; }
 
         [JsonProperty("entry")]
-        public virtual List<WebhookEntry> Entries { get; set; }
+        public virtual List<WebhookBaseEntry> Entries { get; set; }
     }
 }

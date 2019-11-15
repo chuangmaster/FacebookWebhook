@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace FacebookWebhook.Models
 {
-    public class WebhookEntry
+    public abstract class WebhookBaseEntry
     {
         [JsonProperty("id")]
         public virtual string ID { get; set; }
