@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using FacebookMessenger.Models.Messaging.Webhook;
 using FacebookWebhook.Tools;
 using FacebookWebhook;
 using FacebookWebhook.Models;
@@ -41,9 +42,9 @@ namespace FacebookMessenger
 
         public MessengerProfileAPI MessengerProfileAPI { get; private set; }
 
-        public WebhookModel ProcessWebhookRequest(string requestBody)
+        public MessengerWebhookEntry ProcessWebhookRequest(string requestBody)
         {
-            return JsonConvert.DeserializeObject<WebhookModel>(requestBody);
+            return JsonConvert.DeserializeObject<MessengerWebhookEntry>(requestBody);
         }
 
         public static MessengerCore CreateInstance(Credentials credentials = null)
