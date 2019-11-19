@@ -7,12 +7,12 @@ using Newtonsoft.Json;
 
 namespace FacebookWebhook.Models
 {
-    public class WebhookModel
+    public class WebhookModel<T> where T : WebhookBaseEntry
     {
         [JsonProperty("object")]
         public virtual string _Object { get; set; }
 
         [JsonProperty("entry")]
-        public virtual List<WebhookBaseEntry> Entries { get; set; }
+        public virtual List<T> Entries { get; set; }
     }
 }
