@@ -42,9 +42,9 @@ namespace FacebookMessenger
 
         public MessengerProfileAPI MessengerProfileAPI { get; private set; }
 
-        public MessengerWebhookEntry ProcessWebhookRequest(string requestBody)
+        public WebhookModel<MessengerWebhookEntry> ProcessWebhookRequest(string requestBody)
         {
-            return JsonConvert.DeserializeObject<MessengerWebhookEntry>(requestBody);
+            return JsonConvert.DeserializeObject<WebhookModel<MessengerWebhookEntry>>(requestBody);
         }
 
         public static MessengerCore CreateInstance(Credentials credentials = null)
