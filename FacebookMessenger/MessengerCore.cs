@@ -13,7 +13,7 @@ using Newtonsoft.Json;
 
 namespace FacebookMessenger
 {
-    public class MessengerCore : ApiBase
+    public class MessengerCore : ApiBase, IMessengerCore
     {
         public MessengerCore() : base()
         {
@@ -51,5 +51,19 @@ namespace FacebookMessenger
         {
             return new MessengerCore(credentials);
         }
+    }
+
+
+    public interface IMessengerCore
+    {
+        Authenticator Authenticator { get; }
+
+        SendApi SendApi { get; }
+
+        UserProfileApi UserProfileApi { get; }
+
+        MessengerProfileAPI MessengerProfileAPI { get; }
+
+        WebhookModel<MessengerWebhookEntry> ProcessWebhookRequest(string requestBody);
     }
 }
