@@ -77,6 +77,7 @@
     <Compile Include="Models\Messaging\Messages\Message.cs" />
     <Compile Include="Models\Messaging\Messages\TextMessage.cs" />
     <Compile Include="Models\Messaging\NotificationType.cs" />
+    <Compile Include="Models\Messaging\PassingThreadControlContainer.cs" />
     <Compile Include="Models\Messaging\Payloads\LocationPayload.cs" />
     <Compile Include="Models\Messaging\Payloads\Payload.cs" />
     <Compile Include="Models\Messaging\Payloads\TemplatePayload.cs" />
