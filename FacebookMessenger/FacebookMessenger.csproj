@@ -95,6 +95,7 @@
     <Compile Include="Models\Messaging\SenderAction.cs" />
     <Compile Include="Models\Messaging\SenderActionContainer.cs" />
     <Compile Include="Models\Messaging\Webhook\MessengerWebhookEntry.cs" />
+    <Compile Include="Models\Messaging\Webhook\StandbyEvent.cs" />
     <Compile Include="Models\Messaging\Webhook\WebhookAttachment.cs" />
     <Compile Include="Models\Messaging\Webhook\WebhookEvent.cs" />
     <Compile Include="Models\Messaging\Webhook\WebhookEventType.cs" />

@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 using FacebookWebhook.Models;
 using Newtonsoft.Json;
 
-namespace FacebookMessenger.Models.Messaging.Webhook
+namespace FacebookMessenger.Models.Messaging
 {
     public class MessengerWebhookEntry : WebhookBaseEntry
     {
         [JsonProperty("messaging")]
         public List<WebhookEvent> Events { get; set; }
+
+        [JsonProperty("standby")]
+        public List<StandbyEvent> Standbys { get; set; }
     }
 }
