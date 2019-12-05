@@ -91,8 +91,11 @@
     <Compile Include="Models\Messaging\Responses\Errors\Error.cs" />
     <Compile Include="Models\Messaging\Responses\Errors\ErrorResponse.cs" />
     <Compile Include="Models\Messaging\Responses\MessengerProfileAPIResponse.cs" />
+    <Compile Include="Models\Messaging\Responses\PassThreadControlResponse.cs" />
+    <Compile Include="Models\Messaging\Responses\RequestThreadControlResponse.cs" />
     <Compile Include="Models\Messaging\Responses\SendApiResponse.cs" />
-    <Compile Include="Models\Messaging\Responses\ThreadControlBaselResponse.cs" />
+    <Compile Include="Models\Messaging\Responses\TakeThreadControlResponse.cs" />
+    <Compile Include="Models\Messaging\Responses\ThreadControlBaseResponse.cs" />
     <Compile Include="Models\Messaging\Responses\ThreadControlOwnerResponse.cs" />
     <Compile Include="Models\Messaging\Responses\UserProfileApiResponse.cs" />
     <Compile Include="Models\Messaging\Responses\WebResponse.cs" />
