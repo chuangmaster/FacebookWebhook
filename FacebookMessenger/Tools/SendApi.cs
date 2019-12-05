@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using FacebookMessenger.Models;
 using FacebookWebhook;
 using FacebookWebhook.Models;
 
@@ -33,7 +34,8 @@ namespace FacebookWebhook.Tools
             _UploadAttachmentEndpoint = $"{_MessengerApiUrl}/message_attachments?access_token={_Credentials.PageToken}";
         }
 
-        public async Task<SendApiResponse> SendTextAsync(string recipientID, string text, List<QuickReply> quickReplies = null)
+        public async Task<SendApiResponse> SendTextAsync(string recipientID, string text,
+            List<QuickReply> quickReplies = null)
         {
             return await SendMessageAsync(recipientID, new TextMessage
             {
@@ -42,7 +44,8 @@ namespace FacebookWebhook.Tools
             });
         }
 
-        public async Task<SendApiResponse> SendTemplateAsync<T>(string recipientID, T template, List<QuickReply> quickReplies = null)
+        public async Task<SendApiResponse> SendTemplateAsync<T>(string recipientID, T template,
+            List<QuickReply> quickReplies = null)
             where T : TemplatePayload
         {
             return await SendMessageAsync(recipientID, new AttachmentMessage
@@ -56,7 +59,8 @@ namespace FacebookWebhook.Tools
             });
         }
 
-        public async Task<SendApiResponse> SendAttachmentAsync(string recipientID, Attachment attachment, List<QuickReply> quickReplies = null)
+        public async Task<SendApiResponse> SendAttachmentAsync(string recipientID, Attachment attachment,
+            List<QuickReply> quickReplies = null)
         {
             return await SendMessageAsync(recipientID, new AttachmentMessage
             {
@@ -85,7 +89,7 @@ namespace FacebookWebhook.Tools
         }
 
         private async Task<SendApiResponse> SendMessageAsync<T>(string recipientID, T message)
-            where T : Message
+                where T : Message
         {
             return await SendAsync(JObject.FromObject(new MessageContainer<T>
             {

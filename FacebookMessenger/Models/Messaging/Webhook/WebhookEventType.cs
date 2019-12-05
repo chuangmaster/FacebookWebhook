@@ -13,6 +13,7 @@
         PaymentCallback,
         CheckoutUpdateCallback,
         PreCheckoutCallback,
-        AccountLinkingCallback
+        AccountLinkingCallback,
+        StandbyReceivedCallback
     }
 }

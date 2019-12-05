@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace FacebookMessenger.Models
 {
-    public class StandbyEvent
+    public class Standby
     {
         [JsonProperty("sender")]
         public Identifier Sender { get; set; }
