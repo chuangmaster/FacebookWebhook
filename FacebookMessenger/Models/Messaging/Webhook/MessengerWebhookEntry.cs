@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using FacebookWebhook.Models;
 using Newtonsoft.Json;
 
-namespace FacebookMessenger.Models.Messaging
+namespace FacebookMessenger.Models
 {
     public class MessengerWebhookEntry : WebhookBaseEntry
     {

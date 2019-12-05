@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace FacebookMessenger.Models.Messaging
+namespace FacebookMessenger.Models
 {
     public class PassingThreadControlContainer
     {
