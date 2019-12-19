@@ -5,6 +5,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using FacebookMessenger.Models;
+using FacebookMessenger.Tools;
 using FacebookWebhook.Tools;
 using FacebookWebhook;
 using FacebookWebhook.Models;
@@ -21,7 +22,7 @@ namespace FacebookMessenger
 
         public MessengerCore(Credentials credentials) : base(credentials)
         {
-            
+
         }
 
         protected override void Initialize(Credentials credentials = null)
@@ -32,6 +33,7 @@ namespace FacebookMessenger
             SendApi = new SendApi(credentials);
             UserProfileApi = new UserProfileApi(credentials);
             MessengerProfileAPI = new MessengerProfileAPI(credentials);
+            HandoverProtocolHandler = new HandoverProtocolHandler(credentials);
         }
 
         public Authenticator Authenticator { get; private set; }
@@ -41,6 +43,8 @@ namespace FacebookMessenger
         public UserProfileApi UserProfileApi { get; private set; }
 
         public MessengerProfileAPI MessengerProfileAPI { get; private set; }
+
+        public HandoverProtocolHandler HandoverProtocolHandler { get; private set; }
 
         public WebhookModel<MessengerWebhookEntry> ProcessWebhookRequest(string requestBody)
         {
@@ -63,6 +67,8 @@ namespace FacebookMessenger
         UserProfileApi UserProfileApi { get; }
 
         MessengerProfileAPI MessengerProfileAPI { get; }
+
+        HandoverProtocolHandler HandoverProtocolHandler { get; }
 
         WebhookModel<MessengerWebhookEntry> ProcessWebhookRequest(string requestBody);
     }

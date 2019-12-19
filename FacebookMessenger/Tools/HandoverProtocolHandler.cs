@@ -5,8 +5,6 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using FacebookMessenger.Models;
-using FacebookMessenger.Models.Messaging;
-using FacebookMessenger.Models.Messaging.Responses;
 using FacebookWebhook;
 using FacebookWebhook.Models;
 using FacebookWebhook.Tools;
@@ -17,8 +15,12 @@ namespace FacebookMessenger.Tools
 {
     public class HandoverProtocolHandler : ApiBase
     {
+        public HandoverProtocolHandler(Credentials credentials) : base(credentials)
+        {
 
-        public async Task<SendApiResponse> SendPassingThreadControlAsync(string recipientID, string secondaryID,
+        }
+
+        public async Task<SendApiResponse> SendPassingThreadControlAsync(string recipientID, int secondaryID,
             string metaData = null)
         {
             var endpoint = _FacebookGraphApiUrl + $"/me/pass_thread_control?access_token={_Credentials.PageToken}";
@@ -31,13 +33,13 @@ namespace FacebookMessenger.Tools
             }), endpoint);
         }
 
-        private async Task<ThreadOwnerResponse> GetThreadOwnerAsync(string recipientID)
+        public async Task<ThreadControlBaseResponse> GetThreadOwnerAsync(string recipientID)
         {
             var endPoint = _FacebookGraphApiUrl + $"/me/thread_owner?recipient={recipientID}&access_token={_Credentials.PageToken}";
-            return await RequestHandler.GetAsync<ThreadOwnerResponse>(endPoint);
+            return await RequestHandler.GetAsync<ThreadControlBaseResponse>(endPoint);
         }
 
-        private async Task<WebResponse> SendRequestThreadControl(string recipientID, string metaData = null)
+        public async Task<WebResponse> SendRequestThreadControlAsync(string recipientID, string metaData = null)
         {
             var endPoint = _FacebookGraphApiUrl + $"/me/request_thread_control?access_token={_Credentials.PageToken}";
             return await RequestHandler.PostAsync<WebResponse>(JObject.FromObject(
@@ -51,5 +53,18 @@ namespace FacebookMessenger.Tools
                 }), endPoint);
         }
 
+        public async Task<TakeThreadControlResponse> SendTakeThreadControl(string recipientID, string metaData = null)
+        {
+            var endpoint = _FacebookGraphApiUrl + $"/me/take_thread_control?access_token={_Credentials.PageToken}";
+            return await RequestHandler.PostAsync<TakeThreadControlResponse>(JObject.FromObject(
+                new TakeThreadControlContainer()
+                {
+                    _Recipient = new TakeThreadControlContainer.Recipient()
+                    {
+                        ID = recipientID
+                    },
+                    MetaData = metaData
+                }), endpoint);
+        }
     }
 }

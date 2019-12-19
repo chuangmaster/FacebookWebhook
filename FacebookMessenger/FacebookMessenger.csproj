@@ -101,6 +101,7 @@
     <Compile Include="Models\Messaging\Responses\WebResponse.cs" />
     <Compile Include="Models\Messaging\SenderAction.cs" />
     <Compile Include="Models\Messaging\SenderActionContainer.cs" />
+    <Compile Include="Models\Messaging\TakeThreadControlContainer.cs" />
     <Compile Include="Models\Messaging\Webhook\MessengerWebhookEntry.cs" />
     <Compile Include="Models\Messaging\Webhook\Standby.cs" />
     <Compile Include="Models\Messaging\Webhook\WebhookAttachment.cs" />

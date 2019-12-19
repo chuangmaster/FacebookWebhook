@@ -14,6 +14,6 @@ namespace FacebookMessenger.Models
         public List<WebhookEvent> Events { get; set; }
 
         [JsonProperty("standby")]
-        public List<StandbyEvent> Standbys { get; set; }
+        public List<Standby> Standbys { get; set; }
     }
 }
