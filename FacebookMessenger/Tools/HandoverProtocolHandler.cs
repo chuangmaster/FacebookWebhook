@@ -20,7 +20,7 @@ namespace FacebookMessenger.Tools
 
         }
 
-        public async Task<SendApiResponse> SendPassingThreadControlAsync(string recipientID, int secondaryID,
+        public async Task<SendApiResponse> SendPassingThreadControlAsync(string recipientID, string secondaryID,
             string metaData = null)
         {
             var endpoint = _FacebookGraphApiUrl + $"/me/pass_thread_control?access_token={_Credentials.PageToken}";

@@ -14,7 +14,7 @@ namespace FacebookMessenger.Models
         public Recipient _Recipient { get; set; }
 
         [JsonProperty("target_app_id")]
-        public int SecondaryID { get; set; }
+        public string SecondaryID { get; set; }
 
         [JsonProperty("metadata")]
         public string MetaData { get; set; }
