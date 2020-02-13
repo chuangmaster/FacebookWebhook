@@ -9,10 +9,9 @@ using InstagramWebhook.Models;
 
 namespace InstagramWebhook
 {
-    public class InstagramWebhookEntry<T> : WebhookBaseEntry 
-        where T : ValueBaseModel
+    public class InstagramWebhookEntry<T> : WebhookBaseEntry
     {
         [JsonProperty("changes")]
-        public List<ChangeModel<T>> Changes { get; set; }
+        public List<T> Changes { get; set; }
     }
 }

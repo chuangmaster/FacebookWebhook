@@ -7,8 +7,7 @@ using Newtonsoft.Json;
 
 namespace InstagramWebhook.Models
 {
-    public abstract class ChangeModel<T> 
-        where T : ValueBaseModel
+    public class ChangeModel<T>
     {
         [JsonProperty("field")]
         public string Field { get; set; }
@@ -16,4 +15,9 @@ namespace InstagramWebhook.Models
         [JsonProperty("value")]
         public T Type { get; set; }
     }
+    //public abstract class ChangeBaseModel
+    //{
+    //    [JsonProperty("field")]
+    //    public string Field { get; set; }
+    //}
 }
