@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FacebookMessenger.Models.Messaging.Messages;
 
 namespace FacebookWebhook.Models
 {
@@ -20,12 +21,25 @@ namespace FacebookWebhook.Models
 
         [JsonProperty("notification_type")]
         public virtual NotificationType NotificationType { get; set; }
+
+        [JsonProperty("messaging_type")]
+        public virtual MessageType MessageType { get; set; }
+
     }
 
     public class MessageContainer<T> : MessageContainer where T : Message
     {
         [JsonProperty("message")]
         public virtual T Message { get; set; }
+    }
+
+    public class TagMessageContainer<T> : MessageContainer where T : Message
+    {
+        [JsonProperty("message")]
+        public virtual T Message { get; set; }
+
+        [JsonProperty("tag")]
+        public virtual MessageTagsType Tag { get; set; }
     }
 
     public class UploadContainer : MessageContainer<AttachmentMessage>

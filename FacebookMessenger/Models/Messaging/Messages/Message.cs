@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FacebookMessenger.Models.Messaging;
+using FacebookMessenger.Models.Messaging.Messages;
 
 namespace FacebookWebhook.Models
 {
@@ -15,5 +17,7 @@ namespace FacebookWebhook.Models
 
         [JsonProperty("metadata")]
         public virtual string Metadata { get; set; }
+
+
     }
 }

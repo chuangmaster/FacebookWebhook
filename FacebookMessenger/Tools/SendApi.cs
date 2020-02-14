@@ -8,6 +8,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using FacebookMessenger.Models;
+using FacebookMessenger.Models.Messaging.Messages;
 using FacebookWebhook;
 using FacebookWebhook.Models;
 
@@ -42,6 +43,20 @@ namespace FacebookWebhook.Tools
                 Text = text,
                 QuickReplies = quickReplies
             });
+        }
+        /// <summary>
+        /// Send Tag Message
+        /// </summary>
+        /// <param name="recipientID"></param>
+        /// <param name="text"></param>
+        /// <param name="messageTag"></param>
+        /// <returns></returns>
+        public async Task<SendApiResponse> SendMessageTag(string recipientID, string text, MessageTagsType messageTag)
+        {
+            return await SendTagMessageAsync(recipientID, new TextMessage()
+            {
+                Text = text
+            }, messageTag);
         }
 
         public async Task<SendApiResponse> SendTemplateAsync<T>(string recipientID, T template,
@@ -94,7 +109,19 @@ namespace FacebookWebhook.Tools
             return await SendAsync(JObject.FromObject(new MessageContainer<T>
             {
                 Recipient = new Identifier { ID = recipientID },
-                Message = message
+                Message = message,
+            }, new JsonSerializer { NullValueHandling = NullValueHandling.Ignore }));
+        }
+
+        private async Task<SendApiResponse> SendTagMessageAsync<T>(string recipientID, T message, MessageTagsType messageTag)
+            where T : Message
+        {
+            return await SendAsync(JObject.FromObject(new TagMessageContainer<T>
+            {
+                Recipient = new Identifier { ID = recipientID },
+                Message = message,
+                Tag = messageTag,
+                MessageType = MessageType.MESSAGE_TAG,
             }, new JsonSerializer { NullValueHandling = NullValueHandling.Ignore }));
         }
 
