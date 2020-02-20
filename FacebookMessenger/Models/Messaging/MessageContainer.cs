@@ -31,6 +31,9 @@ namespace FacebookWebhook.Models
     {
         [JsonProperty("message")]
         public virtual T Message { get; set; }
+
+        [JsonProperty("messaging_type")]
+        public override MessageType MessageType { get => MessageType.RESPONSE; }
     }
 
     public class TagMessageContainer<T> : MessageContainer where T : Message
@@ -40,6 +43,9 @@ namespace FacebookWebhook.Models
 
         [JsonProperty("tag")]
         public virtual MessageTagsType Tag { get; set; }
+
+        [JsonProperty("messaging_type")]
+        public override MessageType MessageType { get => MessageType.MESSAGE_TAG; }
     }
 
     public class UploadContainer : MessageContainer<AttachmentMessage>
