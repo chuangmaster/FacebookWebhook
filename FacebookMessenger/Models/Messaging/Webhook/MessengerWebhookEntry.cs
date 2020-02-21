@@ -15,5 +15,8 @@ namespace FacebookMessenger.Models
 
         [JsonProperty("standby")]
         public List<Standby> Standbys { get; set; }
+
+        [JsonIgnore] 
+        public bool IsStandbys => this.Standbys.Count > 0;
     }
 }

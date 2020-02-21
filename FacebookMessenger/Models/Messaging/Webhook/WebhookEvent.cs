@@ -43,9 +43,6 @@ namespace FacebookWebhook.Models
         [JsonProperty("account_linking")]
         public virtual AccountLink AccountLink { get; set; }
 
-        [JsonProperty("Standby")]
-        public virtual Standby Standby { get; set; }
-
         [JsonIgnore]
         public WebhookEventType EventType
         {
@@ -58,9 +55,6 @@ namespace FacebookWebhook.Models
 
                     return WebhookEventType.MessageReceivedCallback;
                 }
-
-                if (Standby != null)
-                    return WebhookEventType.StandbyReceivedCallback;
 
                 if (MessageDeliveredNotification != null)
                     return WebhookEventType.MessageDeliveredCallback;
