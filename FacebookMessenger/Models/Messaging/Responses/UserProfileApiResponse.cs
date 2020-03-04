@@ -9,6 +9,12 @@ namespace FacebookWebhook.Models
 {
     public class UserProfileApiResponse : WebResponse
     {
+        [JsonProperty("id")]
+        public virtual string Id { get; set; }
+
+        [JsonProperty("name")]
+        public virtual string Name { get; set; }
+
         [JsonProperty("first_name")]
         public virtual string FirstName { get; set; }
 
