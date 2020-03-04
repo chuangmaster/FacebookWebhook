@@ -30,6 +30,8 @@ namespace FacebookWebhook.Tools
 
         public enum UserProfileField
         {
+            id,
+            name,
             first_name,
             last_name,
             profile_pic,
