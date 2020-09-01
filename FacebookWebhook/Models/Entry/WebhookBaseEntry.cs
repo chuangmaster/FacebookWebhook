@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace FacebookWebhook.Models
+namespace FacebookWebhook.Models.Entry
 {
     public abstract class WebhookBaseEntry
     {

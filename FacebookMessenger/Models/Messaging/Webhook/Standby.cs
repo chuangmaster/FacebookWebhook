@@ -16,6 +16,21 @@ namespace FacebookMessenger.Models
         [JsonProperty("recipient")]
         public Identifier Recipient { get; set; }
 
+        [JsonProperty("timestamp")]
+        public virtual string TimeStamp { get; set; }
+
+        [JsonProperty("message")]
+        public TextMessage Message { get; set; }
+
+        public class TextMessage
+        {
+            [JsonProperty("text")]
+            public virtual string Text { get; set; }
+
+            [JsonProperty("mid")]
+            public virtual string Mid { get; set; }
+        }
+
         public class Identifier
         {
             [JsonProperty("id")]
