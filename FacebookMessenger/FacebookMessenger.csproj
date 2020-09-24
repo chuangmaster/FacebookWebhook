@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonWebhookCore.cs" />
     <Compile Include="MessengerCore.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Adjustment.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Models\Elements\Element.cs" />
     <Compile Include="Models\Elements\ElementStyle.cs" />
     <Compile Include="Models\Elements\ReceiptElement.cs" />
+    <Compile Include="Models\Entry\CommonBaseModel.cs" />
     <Compile Include="Models\Localization\Locale.cs" />
     <Compile Include="Models\Localization\LocaleCode.cs" />
     <Compile Include="Models\Localization\LocaleCodeStandard.cs" />

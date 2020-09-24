@@ -50,6 +50,7 @@
     <Compile Include="Models\Entry\Changes\PageFeedChanges.cs" />
     <Compile Include="Models\Entry\Changes\Values\BaseValue.cs" />
     <Compile Include="Models\Entry\Changes\Values\PageFeedValue.cs" />
+    <Compile Include="Models\Entry\FeedEntry.cs" />
     <Compile Include="Models\Entry\WebhookBaseEntry.cs" />
     <Compile Include="Models\WebhookModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
