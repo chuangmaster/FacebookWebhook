@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FacebookMessenger.Models;
 using FacebookMessenger.Models.Messaging.Messages;
+using FacebookMessenger.Models.Messaging.RecipientIdentifier;
 using FacebookWebhook;
 using FacebookWebhook.Models;
 
@@ -44,6 +45,49 @@ namespace FacebookWebhook.Tools
                 QuickReplies = quickReplies
             });
         }
+
+        public async Task<SendApiResponse> SendTextByCommentIdAsync(string commentId, string text,
+            List<QuickReply> quickReplies = null)
+        {
+            return await SendMessageAsync(
+                new RecipientCommentId()
+                {
+                    CommentId = commentId
+                }, new TextMessage
+                {
+                    Text = text,
+                    QuickReplies = quickReplies
+                });
+        }
+
+        public async Task<SendApiResponse> SendTextByPostIdAsync(string postId, string text,
+            List<QuickReply> quickReplies = null)
+        {
+            return await SendMessageAsync(
+                new RecipientPostIdentifier()
+                {
+                    PostId = postId
+                }, new TextMessage
+                {
+                    Text = text,
+                    QuickReplies = quickReplies
+                });
+        }
+
+        public async Task<SendApiResponse> SendTextByUserRefAsync(string userRef, string text,
+            List<QuickReply> quickReplies = null)
+        {
+            return await SendMessageAsync(
+                new RecipientUserRef()
+                {
+                    UserRef = userRef
+                }, new TextMessage
+                {
+                    Text = text,
+                    QuickReplies = quickReplies
+                });
+        }
+
         /// <summary>
         /// Send Tag Message
         /// </summary>
@@ -98,7 +142,7 @@ namespace FacebookWebhook.Tools
         {
             return await SendAsync(JObject.FromObject(new SenderActionContainer
             {
-                Recipient = new Identifier { ID = recipientID },
+                Recipient = new RecipientMessageIdentifier() { ID = recipientID },
                 SenderAction = action
             }, new JsonSerializer { NullValueHandling = NullValueHandling.Ignore }));
         }
@@ -108,7 +152,47 @@ namespace FacebookWebhook.Tools
         {
             return await SendAsync(JObject.FromObject(new MessageContainer<T>
             {
-                Recipient = new Identifier { ID = recipientID },
+                Recipient = new RecipientMessageIdentifier() { ID = recipientID },
+                Message = message,
+            }, new JsonSerializer { NullValueHandling = NullValueHandling.Ignore }));
+        }
+
+        private async Task<SendApiResponse> SendMessageAsync<T>(RecipientMessageIdentifier recipient, T message)
+            where T : Message
+        {
+            return await SendAsync(JObject.FromObject(new MessageContainer<T>
+            {
+                Recipient = recipient,
+                Message = message,
+            }, new JsonSerializer { NullValueHandling = NullValueHandling.Ignore }));
+        }
+
+        private async Task<SendApiResponse> SendMessageAsync<T>(RecipientCommentId recipient, T message)
+            where T : Message
+        {
+            return await SendAsync(JObject.FromObject(new MessageContainer<T>
+            {
+                Recipient = recipient,
+                Message = message,
+            }, new JsonSerializer { NullValueHandling = NullValueHandling.Ignore }));
+        }
+
+        private async Task<SendApiResponse> SendMessageAsync<T>(RecipientUserRef recipient, T message)
+            where T : Message
+        {
+            return await SendAsync(JObject.FromObject(new MessageContainer<T>
+            {
+                Recipient = recipient,
+                Message = message,
+            }, new JsonSerializer { NullValueHandling = NullValueHandling.Ignore }));
+        }
+
+        private async Task<SendApiResponse> SendMessageAsync<T>(RecipientPostIdentifier recipient, T message)
+            where T : Message
+        {
+            return await SendAsync(JObject.FromObject(new MessageContainer<T>
+            {
+                Recipient = recipient,
                 Message = message,
             }, new JsonSerializer { NullValueHandling = NullValueHandling.Ignore }));
         }
@@ -118,7 +202,7 @@ namespace FacebookWebhook.Tools
         {
             return await SendAsync(JObject.FromObject(new TagMessageContainer<T>
             {
-                Recipient = new Identifier { ID = recipientID },
+                Recipient = new RecipientMessageIdentifier { ID = recipientID },
                 Message = message,
                 Tag = messageTag,
                 MessageType = MessageType.MESSAGE_TAG,

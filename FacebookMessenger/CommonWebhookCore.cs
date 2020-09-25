@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using FacebookMessenger.Models;
 using FacebookMessenger.Models.Entry;
 using FacebookMessenger.Tools;
+using FacebookWebhook;
 using FacebookWebhook.Models;
 using FacebookWebhook.Models.Entry;
 using FacebookWebhook.Security;
@@ -14,17 +15,33 @@ using Newtonsoft.Json;
 
 namespace FacebookMessenger
 {
-    public class CommonWebhookCore : ICommonWebhookCore
+    public class CommonWebhookCore : ApiBase, ICommonWebhookCore
     {
-        public Authenticator Authenticator { get; }
-        public SendApi SendApi { get; }
-        public UserProfileApi UserProfileApi { get; }
-        public MessengerProfileAPI MessengerProfileAPI { get; }
-        public HandoverProtocolHandler HandoverProtocolHandler { get; }
+
+        public CommonWebhookCore()
+        {
+            
+        }
+        public CommonWebhookCore(Credentials credentials) : base(credentials)
+        {
+            
+        }
+
+        protected override void Initialize(Credentials credentials = null)
+        {
+            base.Initialize(credentials);
+
+            Authenticator = new Authenticator(credentials);
+            SendApi = new SendApi(credentials);
+            UserProfileApi = new UserProfileApi(credentials);
+            MessengerProfileAPI = new MessengerProfileAPI(credentials);
+            HandoverProtocolHandler = new HandoverProtocolHandler(credentials);
+        }
+
         public CommonBaseModel ProcessWebhookRequest(string requestBody)
         {
-            var messenger = JsonConvert.DeserializeObject<MessengerWebhookEntry>(requestBody);
-            var feed = JsonConvert.DeserializeObject<FeedEntry>(requestBody);
+            var messenger = JsonConvert.DeserializeObject<WebhookModel<MessengerWebhookEntry>>(requestBody);
+            var feed = JsonConvert.DeserializeObject<WebhookModel<FeedEntry>>(requestBody);
 
             var result = new CommonBaseModel()
             {
@@ -33,6 +50,20 @@ namespace FacebookMessenger
             };
 
             return result;
+        }
+        public Authenticator Authenticator { get; private set; }
+
+        public SendApi SendApi { get; private set; }
+
+        public UserProfileApi UserProfileApi { get; private set; }
+
+        public MessengerProfileAPI MessengerProfileAPI { get; private set; }
+
+        public HandoverProtocolHandler HandoverProtocolHandler { get; private set; }
+
+        public static CommonWebhookCore CreateInstance(Credentials credentials = null)
+        {
+            return new CommonWebhookCore(credentials);
         }
     }
 

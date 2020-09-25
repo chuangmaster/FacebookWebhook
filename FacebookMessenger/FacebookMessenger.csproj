@@ -74,6 +74,8 @@
     <Compile Include="Models\Messaging\Attachment.cs" />
     <Compile Include="Models\Messaging\AttachmentType.cs" />
     <Compile Include="Models\Messaging\Identifier.cs" />
+    <Compile Include="Models\Messaging\RecipientIdentifier\RecipientCommentId.cs" />
+    <Compile Include="Models\Messaging\RecipientIdentifier\RecipientMessageIdentifier.cs" />
     <Compile Include="Models\Messaging\MessageContainer.cs" />
     <Compile Include="Models\Messaging\Messages\AttachmentMessage.cs" />
     <Compile Include="Models\Messaging\Messages\Message.cs" />
@@ -89,6 +91,9 @@
     <Compile Include="Models\Messaging\Postback.cs" />
     <Compile Include="Models\Messaging\QuickReply.cs" />
     <Compile Include="Models\Messaging\QuickReplyContentType.cs" />
+    <Compile Include="Models\Messaging\RecipientIdentifier\RecipientIdentifier.cs" />
+    <Compile Include="Models\Messaging\RecipientIdentifier\RecipientPostIdentifier.cs" />
+    <Compile Include="Models\Messaging\RecipientIdentifier\RecipientUserRef.cs" />
     <Compile Include="Models\Messaging\Referral.cs" />
     <Compile Include="Models\Messaging\RefParam.cs" />
     <Compile Include="Models\Messaging\RequestThreadControlContainer.cs" />

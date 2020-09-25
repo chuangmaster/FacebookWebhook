@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FacebookMessenger.Models.Messaging.Messages;
+using FacebookMessenger.Models.Messaging.RecipientIdentifier;
 
 namespace FacebookWebhook.Models
 {
@@ -17,7 +18,7 @@ namespace FacebookWebhook.Models
         }
 
         [JsonProperty("recipient")]
-        public virtual Identifier Recipient { get; set; }
+        public virtual RecipientIdentifier Recipient { get; set; }
 
         [JsonProperty("notification_type")]
         public virtual NotificationType NotificationType { get; set; }
@@ -51,6 +52,6 @@ namespace FacebookWebhook.Models
     public class UploadContainer : MessageContainer<AttachmentMessage>
     {
         [JsonIgnore]
-        public override Identifier Recipient { get; set; }
+        public override RecipientIdentifier Recipient { get; set; }
     }
 }
