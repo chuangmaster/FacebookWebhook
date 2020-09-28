@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FacebookMessenger.Models;
 using FacebookMessenger.Models.Entry;
+using FacebookMessenger.Models.JsonConverter;
 using FacebookMessenger.Tools;
 using FacebookWebhook;
 using FacebookWebhook.Models;
@@ -40,7 +41,13 @@ namespace FacebookMessenger
 
         public CommonBaseModel ProcessWebhookRequest(string requestBody)
         {
-            var messenger = JsonConvert.DeserializeObject<WebhookModel<MessengerWebhookEntry>>(requestBody);
+            var messenger = JsonConvert.DeserializeObject<WebhookModel<MessengerWebhookEntry>>(requestBody, new JsonSerializerSettings()
+            {
+                Converters = new List<JsonConverter>()
+                {
+                    new RecipientIdentifierConverter()
+                }
+            });
             var feed = JsonConvert.DeserializeObject<WebhookModel<FeedEntry>>(requestBody);
 
             var result = new CommonBaseModel()
