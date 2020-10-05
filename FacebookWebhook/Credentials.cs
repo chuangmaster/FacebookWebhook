@@ -11,5 +11,6 @@ namespace FacebookWebhook
         public string PageToken { get; set; }
         public string AppSecret { get; set; }
         public string VerifyToken { get; set; }
+        public string PageId { get; set; }
     }
 }

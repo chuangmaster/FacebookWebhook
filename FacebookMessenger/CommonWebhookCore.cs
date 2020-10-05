@@ -21,11 +21,11 @@ namespace FacebookMessenger
 
         public CommonWebhookCore()
         {
-            
+
         }
         public CommonWebhookCore(Credentials credentials) : base(credentials)
         {
-            
+
         }
 
         protected override void Initialize(Credentials credentials = null)
@@ -37,6 +37,7 @@ namespace FacebookMessenger
             UserProfileApi = new UserProfileApi(credentials);
             MessengerProfileAPI = new MessengerProfileAPI(credentials);
             HandoverProtocolHandler = new HandoverProtocolHandler(credentials);
+            PageFeedApi = new PageFeedAPI(credentials);
         }
 
         public CommonBaseModel ProcessWebhookRequest(string requestBody)
@@ -68,6 +69,8 @@ namespace FacebookMessenger
 
         public HandoverProtocolHandler HandoverProtocolHandler { get; private set; }
 
+        public PageFeedAPI PageFeedApi { get; private set; }
+
         public static CommonWebhookCore CreateInstance(Credentials credentials = null)
         {
             return new CommonWebhookCore(credentials);
@@ -89,6 +92,7 @@ namespace FacebookMessenger
 
         HandoverProtocolHandler HandoverProtocolHandler { get; }
 
+        PageFeedAPI PageFeedApi { get; }
 
         CommonBaseModel ProcessWebhookRequest(string requestBody);
     }

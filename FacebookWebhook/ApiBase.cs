@@ -34,20 +34,22 @@ namespace FacebookWebhook
                 (
                     Settings.Default.AppSecret,
                     Settings.Default.PageToken,
-                    Settings.Default.VerifyToken
+                    Settings.Default.VerifyToken,
+                    Settings.Default.PageToken
                 );
             }
             else
                 _Credentials = credentials;
         }
 
-        public static Credentials CreateCredentials(string appSecret, string pageToken, string verifyToken)
+        public static Credentials CreateCredentials(string appSecret, string pageToken, string verifyToken, string pageId)
         {
             return new Credentials
             {
                 AppSecret = appSecret,
                 PageToken = pageToken,
-                VerifyToken = verifyToken
+                VerifyToken = verifyToken,
+                PageId = pageId
             };
         }
     }

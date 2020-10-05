@@ -141,6 +141,8 @@
     <Compile Include="Models\Payment\ShippingOption.cs" />
     <Compile Include="Models\ProductInfo.cs" />
     <Compile Include="Models\Residence.cs" />
+    <Compile Include="Models\Response\CommentOnThePostResponse.cs" />
+    <Compile Include="Models\Response\FeedPublishingResponse.cs" />
     <Compile Include="Models\Summary.cs" />
     <Compile Include="Models\Templates\Airline\AirlineBordingPassTemplate.cs" />
     <Compile Include="Models\Templates\Airline\AirlineCheckinReminderTemplate.cs" />
@@ -169,6 +171,7 @@
     <Compile Include="Tools\AttachmentHandler.cs" />
     <Compile Include="Tools\HandoverProtocolHandler.cs" />
     <Compile Include="Tools\MessengerProfileAPI.cs" />
+    <Compile Include="Tools\PageFeedAPI.cs" />
     <Compile Include="Tools\RequestHandler.cs" />
     <Compile Include="Tools\SendApi.cs" />
     <Compile Include="Tools\UserProfileApi.cs" />

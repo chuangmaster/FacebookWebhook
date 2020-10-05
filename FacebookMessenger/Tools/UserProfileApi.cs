@@ -18,6 +18,9 @@ namespace FacebookWebhook.Tools
         {
         }
 
+        /// <summary>
+        /// default get user profile field
+        /// </summary>
         public IReadOnlyList<string> AllFields = Enum.GetNames(typeof(UserProfileField)).ToList();
 
         public async Task<UserProfileApiResponse> GetUserProfileAsync(string userID, List<UserProfileField> fields = null)
