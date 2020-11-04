@@ -10,7 +10,6 @@ namespace FacebookWebhook.Models
 {
     public class TextMessage : Message
     {
-        [JsonProperty("text")]
-        public virtual string Text { get; set; }
+
     }
 }
