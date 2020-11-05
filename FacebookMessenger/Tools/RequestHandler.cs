@@ -51,7 +51,7 @@ namespace FacebookWebhook.Tools
                     string requestBody = json.ToString();
 
                     HttpResponseMessage response = await client.PostAsync(requestUrl,
-                        new StringContent(requestBody, Encoding.UTF8, "application/json"));
+                    new StringContent(requestBody, Encoding.UTF8, "application/json"));
 
                     webResponse = await ProcessResult<T>(response, requestBody);
                 }
@@ -102,7 +102,7 @@ namespace FacebookWebhook.Tools
                     string requestBody = json.ToString();
 
                     HttpResponseMessage response = await client.SendAsync(new HttpRequestMessage(HttpMethod.Delete, requestUrl)
-                        { Content = new StringContent(requestBody, Encoding.UTF8, "application/json") });
+                    { Content = new StringContent(requestBody, Encoding.UTF8, "application/json") });
 
                     webResponse = await ProcessResult<T>(response, requestBody);
                 }

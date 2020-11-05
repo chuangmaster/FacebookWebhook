@@ -128,6 +128,19 @@ namespace FacebookWebhook.Tools
             });
         }
 
+        public async Task<SendApiResponse> SendAttachmentByCommentIdAsync(string commentId, Attachment attachment)
+        {
+            return await SendMessageAsync(
+                new RecipientCommentId()
+                {
+                    CommentId = commentId
+                }, new AttachmentMessage()
+                {
+                    QuickReplies = null,
+                    Attachment = attachment
+                });
+        }
+
         public async Task<SendApiResponse> UploadAttachmentAsync(Attachment<UrlPayload> attachment)
         {
             attachment.Payload.IsReusable = true;

@@ -17,8 +17,5 @@ namespace FacebookWebhook.Models
 
         [JsonProperty("metadata")]
         public virtual string Metadata { get; set; }
-
-        [JsonProperty("text")]
-        public virtual string Text { get; set; }
     }
 }

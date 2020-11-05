@@ -75,6 +75,7 @@
     <Compile Include="Models\Messaging\Attachment.cs" />
     <Compile Include="Models\Messaging\AttachmentType.cs" />
     <Compile Include="Models\Messaging\Identifier.cs" />
+    <Compile Include="Models\Messaging\Payloads\AssetsPayload.cs" />
     <Compile Include="Models\Messaging\RecipientIdentifier\RecipientCommentId.cs" />
     <Compile Include="Models\Messaging\RecipientIdentifier\RecipientMessageIdentifier.cs" />
     <Compile Include="Models\Messaging\MessageContainer.cs" />
